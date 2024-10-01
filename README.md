@@ -1,35 +1,38 @@
 # Team RGB – WRO Future Engineers 2024
 
-We are Team RGB, the duo of engineering students from RFL Academy, driven by a passion for robotics. We have divided our roles:
+We are **Team RGB**, a duo of engineering students from **RFL Academy**, united by our passion for **Robotics**. We have clearly divided our roles to maximize our strengths:
 
-**Bhavya – Programmer & Electronics**: He works on the robot with PID control, creates logic & algorithms. He programmed the robot’s journey in both the open-round challenge and the obstacle round, ensuring smooth and precise operation. 
+**Bhavya – Lead Programmer & Electronics**: Bhavya is responsible for the robot's programming and electronics systems. He specializes in developing advanced control algorithms, including PID control, and designing the logic that powers the robot’s movements and decision-making. Bhavya ensures the seamless integration of sensors and motors, programming the robot to execute precise maneuvers for both the open-round and obstacle-round. 
 
-**Raj - Constructor**: He is into Robot’s CAD design and enjoys working with LEGO components. He focuses on designing a sturdy and functional robot considering the dimensions and weight restrictions.
+**Raj – Lead Designer & Constructor** Raj is responsible for the structural and mechanical design of the robot. With a focus on precision and functionality, he uses CAD software to create a robust and lightweight design that adheres to the competition’s strict dimension and weight restrictions. Raj specializes in optimizing the integration of LEGO components with custom-designed parts, ensuring the robot performs reliably in both maneuverability and stability under competition conditions.
 
 # Programming
-In our first two iterations while we were using the 3D printed chassis for better customizations and to try something new, we decided to use the **Raspberry Pi**.
-It was our first time using the Raspi having no hands-on experience with all the schematics or even the programming aspect of the raspberry pi. At the start, inorder to use the raspi we researched the best way to program it which gave us an option of the __Real-VNC viewer__ which turned out to be really good. But, this virtual machine was too laggy, therefore not giving us the best experience to work with. 
+During the initial two iterations of our robot, we utilized a 3D-printed chassis to allow for greater customization and explore new design possibilities. For processing and control, we opted to use a Raspberry Pi, despite it being our first time working with this platform, including its schematics and programming interface.
 
-Later, we found out that using __OBS studio__ we could use an Hdmi Input to Output converter to view Raspberry Pi’s screen and edit in the main window.
-Being newbies in working with raspberry pi, I found it too difficult to gather resources and then compile codes to run it. Several features required too much of installation on the board and for setting it up.
+To streamline our workflow, we researched methods for accessing and controlling the **Raspberry Pi** without the need for external peripherals like a monitor or keyboard. We initially implemented **RealVNC Viewer**, a software solution that enabled remote access to the Raspberry Pi from the development computer. However, we soon encountered performance limitations, as the virtual environment proved to be too laggy, negatively impacting the overall user experience and efficiency.
 
-After working with it for more than 30 days, we felt that we could add an Arduino board to improve performance of several components and also divide the tasks between **Arduino and Rapsberry Pi**. This worked to our expectations.
+Later, we discovered that by utilizing OBS Studio in conjunction with an HDMI Input to Output converter, we could display the Raspberry Pi's interface on a primary monitor, enabling direct editing in the main window. As we were new to working with the Raspberry Pi, initially, gathering resources and compiling the necessary code posed a significant challenge. Several features required extensive installation and configuration, further complicating the process.
 
-Due to construction difficulties we were not able to incorporate so many components, wiring, power distribution board on the robot under the given size restrictions.
-Finally, after discussing with my teammate about the difficulties that both of us face for the construction and the programming, we finally decided to shift to **Lego Ev3**. We were pretty much familiar with these components making it easy for us to move with. With the help of EV3 Mindstorms and the PixyCam that is compatible with Ev3, we are now able to perform the tasks at a better pace rather than using the Raspberry Pi. Lego helps us modify and customize the blocks as per our ease making it too easy to work with.
+After over **30 days of working with the Raspberry Pi**, we identified opportunities to enhance system performance by incorporating an **Arduino board**. This allowed us to optimize the robot's functionality by distributing tasks between the **Arduino and the Raspberry Pi**, which successfully met our performance objectives.
+
+However, due to structural constraints and the limited available space for components, wiring, and the power distribution board, we faced difficulties fitting everything within the robot’s designated size restrictions. Following a comprehensive evaluation of both the construction and programming challenges, we collectively decided to transition to the **LEGO EV3** system. Our prior familiarity with these components enabled a smoother transition, allowing us to work more efficiently. With the **EV3 Mindstorms platform** and the **PixyCam**, which is compatible with the EV3, we achieved greater efficiency compared to the Raspberry Pi setup. The LEGO system also provided the flexibility to easily modify and customize the robot’s design to suit our needs.
 
 ## Open Round Challenge
 
 ![OpenRound_Flowchart](https://github.com/user-attachments/assets/fa6db531-46c2-4e71-9b5b-24b2b72e4e04)
 
 
-We begin our journey by determining which side the robot should turn for the next 3 laps. To do this, we rely on **Ultrasonic Sensors** mounted on both sides of the bot to detect where a wall is absent.
-As the robot approaches the turning point, it calculates the average of the sensor readings. The robot continues moving forward as long as this average remains below 80, indicating that walls are detected on both sides.
-The **Gyro sensor** keeps the robot moving straight during this phase.
-When the sensor reading exceeds 80, it signals that a wall is missing on one side. At this point, the robot checks if UltrasonicLeft > 100. If true, it means the bot needs to make a Left Turn. Otherwise, it will make a Right Turn.
->The turns are executed using the Gyro sensor for increased accuracy.
-After determining the direction, the robot continues moving forward with Gyro PID control until the relevant sensor (For eg: If a left turn is decided, the UltrasonicLeft plays the role in the program ahead) detects the wall again and when it does not detect the wall, the robot takes the turn.
-To determine the end of 3 laps, with each turn the counter increments by 1. If the values of counter == 12 that is 3 laps are completed, the robot stops.
+The robot’s journey begins by determining which direction it should turn over the course of the next **3 laps**. To achieve this, we rely on **Ultrasonic Sensors** mounted on both sides of the robot to detect the absence of walls.
+
+As the robot approaches a potential **turning point**, it calculates the average of the sensor readings. The robot continues moving forward as long as this average remains below 80, which indicates that walls are detected on both sides. During this phase, the **Gyro Sensor** ensures that the robot maintains a **straight path**.
+
+When the sensor reading exceeds 80, this indicates that a wall is missing on one side. At this point, the robot checks whether the **UltrasonicLeft** reading is greater than 100. If this condition is met, the robot initiates a left turn. Otherwise, it performs a right turn.
+
+The turns are executed with the assistance of the **Gyro Sensor**, providing increased accuracy during the maneuver.
+
+Once the direction is determined, the robot continues moving forward under **Gyro PID control** until the relevant sensor (for example, if a left turn was initiated, the UltrasonicLeft sensor) detects the presence of a wall again. When the wall is no longer detected, the robot completes the turn.
+
+To track the robot’s progress, a **counter** is incremented by one with each turn. When the counter reaches 12, indicating that three laps have been completed, the robot stops.
 
 **_Description of blocks are given in the sections later_**
 
@@ -66,13 +69,15 @@ Assign the previous error value as the current error value
 
 
 # Construction
-In the initial phase of our design, we focused on selecting lightweight yet sturdy components to ensure our robot met the desired balance of strength and weight. Our first iteration featured a **3D-printed chassis** and a steering mechanism made from **LEGO parts**. However, this design had limitations as the integration of LEGO parts with the 3D-printed chassis was **unreliable, and the overall structure was too bulky and heavy.** 
+In the **Initial phase** of our design, we prioritized selecting lightweight yet durable components to ensure the robot maintained an optimal balance between strength and weight. Our first iteration featured a **3D-printed chassis** combined with a **steering mechanism** constructed from **LEGO parts**. However, this design presented several limitations, as the integration of the LEGO components with the 3D-printed chassis proved unreliable, and the overall structure became too bulky and heavy.
 
-For the second iteration, we shifted to a **fully 3D-printed design**, including the steering mechanism. This resolved many of the issues from the previous version. The **meshing** of the 3D-printed gears and steering components was **precise**, but we encountered challenges in assembling the components as some parts didn't align perfectly, and reprinting components was time-consuming.
+For the **Second iteration**, we transitioned to a **fully 3D-printed design**, including the steering mechanism. This solved many of the issues encountered in the previous version. The meshing of the **3D-printed gears** and steering components was precise. However, we faced challenges in aligning some parts during assembly, and reprinting components was **time-consuming** when adjustments were needed.
 
-In the third iteration, we opted for a **fully LEGO-based chassis**, since we had already achieved a perfect gear mesh with our custom 3D-printed gears and racks, we integrated them into this new design. For the rear wheel motor, we relied on **LEGO gears**, while the steering mechanism used a **custom 3D-printed gear** that matched perfectly with the **custom 3D-printed rack**, providing the best of both worlds.
+In the **Third iteration**, we opted for a **fully LEGO-based chassis**. Given that we had already achieved a precise gear mesh using custom **3D-printed gears and racks**, we integrated these components into the new design. The rear wheel motor relied on LEGO gears, while the steering mechanism utilized a custom 3D-printed gear perfectly matched with a custom 3D-printed rack, offering the best combination of customization and reliability.
 
-Our bot measures **16.5 cm in length, 16 cm in width, and 24 cm in height, with a total weight of 1.2 kg**. It is powered by **two medium motors**: one dedicated to driving the rear wheels and the other for the steering mechanism. The **rear wheels (62.4 x 20s)** are mounted on a single axle and connected to the motor through LEGO gears. The **steering wheels (62.3 x 21s)** are mounted on a single axle and connected to the motor, with the steering system meshing seamlessly with a custom 3D-printed gear and rack. The bot is equipped with **two LEGO ultrasonic sensors**, one on each side, and a **gyro sensor** mounted on top. For obstacle detection, we integrated a **Pixy 2.1 camera**. The entire system is powered by a **LEGO Mindstorms EV3 brick**.
+Our robot measures **16.5 cm in length, 16 cm in width, and 24 cm in height**, with a total weight of **1.2 kg**. It is powered by **two medium motors**—one dedicated to driving the rear wheels and the other for controlling the steering mechanism. The rear wheels (62.4 x 20s) are mounted on a **single axle** and connected to the motor via LEGO gears. The steering wheels (62.3 x 21s) are also mounted on a single axle and connected to the motor, with the steering system operating through the custom 3D-printed gear and rack, ensuring smooth and precise movement.
+
+The robot is equipped with two **LEGO ultrasonic sensors**, mounted on both left & right side, and a **gyro sensor** placed on top for navigation. For obstacle detection, we integrated a **Pixy 2.1 camera**. The entire system is powered by a **LEGO Mindstorms EV3 brick**, which manages the control and coordination of the sensors and motors.
 
 # Electricals 
 
