@@ -107,12 +107,15 @@ The robot is equipped with two **LEGO ultrasonic sensors**, mounted on both left
 ![rack](https://github.com/user-attachments/assets/8095da94-c97d-4a3a-9b54-2e79d7d563b5)
 ![gear](https://github.com/user-attachments/assets/e8f77b26-07b3-4e20-b14b-a0db9464e79c)
 
-We designed a custom 7.2 cm rack with a similar groove pattern and design as the standard 6.4 cm LEGO rack. The original 6.4 cm LEGO rack had some problems wherein its shorter length made it difficult to mesh smoothly with the 20-tooth double bevel black LEGO gear, which restricted the wheels from achieving specific steering angles.
+We designed a **custom 7.2 cm rack** with a similar **groove** pattern and design as the standard **6.4 cm LEGO rack**. The original 6.4 cm LEGO rack had some problems wherein its shorter length made it difficult to mesh smoothly with the **20-tooth double bevel black LEGO gear**, which restricted the wheels from achieving specific steering angles.
 
-However, even with our 7.2 cm rack, we encountered a minor issue: the grooves of the black LEGO gear and our custom rack weren’t perfectly meshing. While it functioned temporarily, the meshing wasn't ideal, and the error compounded by 0.01 with each turn. To overcome this, we also created a custom 12 tooth gear whose grooves are perfectly meshing with custom rack thus eliminating meshing errors and significantly improved the accuracy of the steering, allowing the wheels to turn at precise angles.
+However, even with our 7.2 cm rack, we encountered a minor issue: the grooves of the black LEGO gear and our custom rack weren’t perfectly meshing. While it functioned temporarily, the meshing wasn't ideal, and the **error compounded by 0.01 with each turn**. To overcome this, we also created a **custom 12 tooth gear** whose grooves are **perfectly meshing** with custom rack thus eliminating meshing errors and significantly improved the accuracy of the steering, allowing the wheels to turn at **precise angles**.
 
 
 ## Pixy Mount & Beam
+![pixy mount and beam](https://github.com/user-attachments/assets/d1139705-3865-4015-92a2-d88d2dcb0b4b)
+
+
 
 # Electricals 
 
