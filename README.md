@@ -36,7 +36,25 @@ To track the robot’s progress, a **counter** is incremented by one with each t
 
 **_Description of blocks are given in the sections later_**
 
-### Blocks Description
+## Obstacle Round
+
+![OBSTACLE ROUND FLOWCHART](https://github.com/user-attachments/assets/00f83453-4397-4a2c-9bf4-4a0780c4e030)
+
+The robot’s journey begins with checking Ultrasonic Sensor’s readings for deciding what turn to take. Once that is decided the code for taking respective turns starts.
+
+The **Pixy Camera** connected to the Ev3 constantly keeps checking if any block **(Green or Red is detected)**. If yes, then it moves closer to the block until its area is above 2000 (Area is calculated by multiplying the length &  width of the block. 
+If the block is RED --> Take a Right Turn
+If the block is Green --> Take a Left Turn
+
+With every operation a separate loop of checking the Blue lines and Orange lines is checked. If at the start it was decided that the robot will take a Left turn then the Blue line is checked and vice verse.
+When the line is detected the robot takes a **Gyro based** 90 degree turn.
+
+At the end of 7 turns, the robot keeps on detecting the elements and the values of them are stored in an array. After the 8th turn **the robot decides if it has to take a U-Turn or not** based on the last block which is Red or Green.
+
+Later the 4 rounds are completed and the robot gets into the search of parking that is of color Magenta. After following it using the **encoder** values of the motor we have tried to park the robot fully inside the provided parking area.
+
+## Blocks Description
+
 **Gyro PID**: This block is responsible to keep the robot driving straight with respect to the gyro sensor’s value.  The calculation goes as follows:
 Gyro Sensor’s current reading – Threshold value(set by the user)  = Current Error
 Current Error * 0.8 = kp (The value 0.8 needs to be tuned with respect to each robot)
@@ -45,7 +63,7 @@ Kp + kd = final_value (This value needs to be passed to the Steering motor’s p
 Assign the previous value as the current error for the next loop
 (previous_error = current_error)
 
-![Screenshot_16](https://github.com/user-attachments/assets/b8905f74-a691-403a-8494-04db38c7a1e8)
+![gyro pid](https://github.com/user-attachments/assets/df2e87f6-e31c-473d-8be8-edd3ce14a413)
 
 **GyroTurnLeft or GyroTurnRight**: This block is used to ensure that the robot turns a specific angle that is the required target position
 Here the current value of Gyro sensor is noted.
@@ -54,10 +72,13 @@ Run this in a loop
 Make the steering motor back to its original position 
 (Motor Encoder value * -1) is given to the motor’s target position to bring the steering motor back to its original position
 
+![gyro left](https://github.com/user-attachments/assets/da88db00-fbdf-4519-8119-1803e69f0982)
+
 **Obstacle Sense:** Here we calculate how much the robot has to turn and return to its value for passing an obstacle (red or green)
 Read the values of the detected object, Multiply the height and width of object to check how near it is to the robot
 When it is near to the robot, take a turn and drive the motor until **The camera cannot see the block**
 Return the Steering motor to its original positon and keep moving ahead
+![obstacle sense](https://github.com/user-attachments/assets/d01555af-ee1a-4ebf-9800-b036567c54c6)
 
 
 **Ultrasonic Sensor Wall Follow PID**: This block is responsible to keep the robot driving straight with respect to the deviation of the robot from both the side walls.  We’ll be using 2 sensors, 1 on left and the other on right for better accuracy. The calculation goes as follows:
@@ -65,6 +86,8 @@ Left Ultrasonic Sensor’s current reading – Right Ultrasonic Sensor’s curre
 (Current Error – Previous Error) * 0.5 = magnified final value (The value 0.5 needs to be tuned with respect to each robot)
 This final value needs to be passed to the Steering motor’s power
 Assign the previous error value as the current error value
+
+![wall follow pid](https://github.com/user-attachments/assets/f416382a-693f-4a13-9c9a-8b2b8eae5fdd)
 
 
 
@@ -75,9 +98,14 @@ For the **Second iteration**, we transitioned to a **fully 3D-printed design**, 
 
 In the **Third iteration**, we opted for a **fully LEGO-based chassis**. Given that we had already achieved a precise gear mesh using custom **3D-printed gears and racks**, we integrated these components into the new design. The rear wheel motor relied on LEGO gears, while the steering mechanism utilized a custom 3D-printed gear perfectly matched with a custom 3D-printed rack, offering the best combination of customization and reliability.
 
-Our robot measures **16.5 cm in length, 16 cm in width, and 24 cm in height**, with a total weight of **1.2 kg**. It is powered by **two medium motors**—one dedicated to driving the rear wheels and the other for controlling the steering mechanism. The rear wheels (62.4 x 20s) are mounted on a **single axle** and connected to the motor via LEGO gears. The steering wheels (62.3 x 21s) are also mounted on a single axle and connected to the motor, with the steering system operating through the custom 3D-printed gear and rack, ensuring smooth and precise movement.
+Our robot measures **16.5 cm in length, 16 cm in width, and 24 cm in height**, with a total weight of **0.9 kg**. It is powered by **two medium motors**—one dedicated to driving the rear wheels and the other for controlling the steering mechanism. The rear wheels (62.4 x 20s) are mounted on a **single axle** and connected to the motor via LEGO gears. The steering wheels (62.3 x 21s) are also mounted on a single axle and connected to the motor, with the steering system operating through the custom 3D-printed gear and rack, ensuring smooth and precise movement.
 
 The robot is equipped with two **LEGO ultrasonic sensors**, mounted on both left & right side, and a **gyro sensor** placed on top for navigation. For obstacle detection, we integrated a **Pixy 2.1 camera**. The entire system is powered by a **LEGO Mindstorms EV3 brick**, which manages the control and coordination of the sensors and motors.
+
+# Custom 3D Printed Parts
+## Rack & Gear
+
+## Pixy Mount & Beam
 
 # Electricals 
 
@@ -126,6 +154,4 @@ These cables help in building connections between motors, and sensors to the EV3
 These wheels are used as rear wheels in our robot. These wheels are 62.4 mm in diameter and 20 mm in width.
 ### LEGO Tractor Wheels (56 x 26)
 These wheels are used as front wheels in our robot. These wheels are 56 mm in diameter and 26 mm in width.
-### Rack & Gear
-We designed a **custom 7.2 cm rack** with a similar **groove pattern** and design as the standard **6.4 cm LEGO rack**. The original 6.4 cm LEGO rack had some problems wherein its shorter length made it **difficult to mesh smoothly** with the **20-tooth double bevel black LEGO gear**, which restricted the wheels from achieving **specific steering angles**. 
-However, even with our 7.2 cm rack, we encountered a minor issue: the grooves of the black LEGO gear and our custom rack weren’t perfectly meshing. While it functioned temporarily, the meshing wasn't ideal, and the **error compounded by 0.01 with each turn**. To overcome this, we also created a **custom 12 tooth gear** whose grooves are perfectly meshing with custom rack thus **eliminating meshing errors** and significantly **improved the accuracy of the steering**, allowing the wheels to turn at precise angles.
+
