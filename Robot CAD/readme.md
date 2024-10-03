@@ -8,8 +8,7 @@ In the **Third iteration**, we opted for a **fully LEGO-based chassis**. Given t
 ## Custom 3D Printed Parts
 
 ### Rack & Gear
-We designed a custom 7.2 cm rack with a similar groove pattern and design as the standard 6.4 cm LEGO rack. The original 6.4 cm LEGO rack had some problems wherein its shorter length made it difficult to mesh smoothly with the 20-tooth double bevel black LEGO gear, which restricted the wheels from achieving specific steering angles. 
+We designed a **custom 7.2 cm rack** with a similar **groove** pattern and design as the standard **6.4 cm LEGO rack**. The original 6.4 cm LEGO rack had some problems wherein its shorter length made it difficult to mesh smoothly with the **20-tooth double bevel black LEGO gear**, which restricted the wheels from achieving specific steering angles.
 
-However, even with our 7.2 cm rack, we encountered a minor issue: the grooves of the black LEGO gear and our custom rack weren’t perfectly meshing. While it functioned temporarily, the meshing wasn't ideal, and the error compounded by 0.01 with each turn. To overcome this, we also created a custom 12 tooth gear whose grooves are perfectly meshing with custom rack thus eliminating meshing errors and significantly improved the accuracy of the steering, allowing the wheels to turn at precise angles.
-
+However, even with our 7.2 cm rack, we encountered a minor issue: the grooves of the black LEGO gear and our custom rack weren’t perfectly meshing. While it functioned temporarily, the meshing wasn't ideal, and the **error compounded by 0.01 with each turn**. To overcome this, we also created a **custom 12 tooth gear** whose grooves are **perfectly meshing** with custom rack thus eliminating meshing errors and significantly improved the accuracy of the steering, allowing the wheels to turn at **precise angles**.
 
