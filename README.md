@@ -10,7 +10,7 @@ We are **Team RGB**, a duo of engineering students from **RFL Academy**, united 
 
 **Sahil Gajera - Mentor**:  A computer engineer by profession, Sahil sir is a robotics and linux enthusiast. His experience in First Robotics Competition (FRC) has helped us a lot in this entire joureny of Future Engineer category. 
 
-# Construction
+# Construction Timeline
 
 ## First Iteration
 
@@ -228,7 +228,7 @@ These wheels are used as rear wheels in our robot. These wheels are 62.4 mm in d
 ### 9. LEGO Tractor Wheels (56 x 26)
 These wheels are used as front wheels in our robot. These wheels are 56 mm in diameter and 26 mm in width.
 
-# Programming
+# Programming Timeline
 During the initial two iterations of our robot, we utilized a 3D-printed chassis to allow for greater customization and explore new design possibilities. For processing and control, we opted to use a Raspberry Pi, despite it being our first time working with this platform, including its schematics and programming interface.
 
 To streamline our workflow, we researched methods for accessing and controlling the **Raspberry Pi** without the need for external peripherals like a monitor or keyboard. We initially implemented **RealVNC Viewer**, a software solution that enabled remote access to the Raspberry Pi from the development computer. However, we soon encountered performance limitations, as the virtual environment proved to be too laggy, negatively impacting the overall user experience and efficiency.
@@ -374,4 +374,8 @@ In the Open Round, the program uses Ultrasonic Sensors and Gyro PID control to m
 
 In the Obstacle Round, the Pixy 2.1 camera detects colored blocks and lines, prompting the robot to turn based on the block color **(right for red, left for green)**. It continuously checks for blue or orange lines to adjust its direction, storing detected data in an array to guide decisions, including **U-turns after 8 turns**. The round concludes with the robot searching for a magenta parking area and using motor encoder values to park precisely. The entire Obstacle Round, **including parking, is completed in 140 seconds.**
 
-
+# Video Links
+## OPEN ROUND CHALLENGE
+**Youtube** - https://youtu.be/_w3JlFxCa_E?si=RLct2GLcysBRvsGL
+## OBSTACLE ROUND CHALLENGE
+**Youtube** - 
