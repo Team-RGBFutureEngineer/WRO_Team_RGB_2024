@@ -375,7 +375,9 @@ In the Open Round, the program uses Ultrasonic Sensors and Gyro PID control to m
 In the Obstacle Round, the Pixy 2.1 camera detects colored blocks and lines, prompting the robot to turn based on the block color **(right for red, left for green)**. It continuously checks for blue or orange lines to adjust its direction, storing detected data in an array to guide decisions, including **U-turns after 8 turns**. The round concludes with the robot searching for a magenta parking area and using motor encoder values to park precisely. The entire Obstacle Round, **including parking, is completed in 140 seconds.**
 
 # Video Links
-## OPEN ROUND CHALLENGE
+## Link Tree
+https://linktr.ee/rgbfe2024
+## Open Round Challenge
 **Youtube** - https://youtu.be/_w3JlFxCa_E?si=RLct2GLcysBRvsGL
-## OBSTACLE ROUND CHALLENGE
+## Obstacle Round Challenge
 **Youtube** - 
