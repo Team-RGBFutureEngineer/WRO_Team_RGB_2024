@@ -115,7 +115,11 @@ However, even with our 7.2 cm rack, we encountered a minor issue: the grooves of
 ## Pixy Mount & Beam
 ![pixy mount and beam](https://github.com/user-attachments/assets/d1139705-3865-4015-92a2-d88d2dcb0b4b)
 
+During the robot’s journey, we encountered **instability with the Pixy camera**, which frequently shifted and struggled to accurately detect objects. To address this issue and secure the Pixy at a precise angle, we 3D-printed two custom components.
 
+First, we created a **custom beam** that perfectly aligned with the **holes of the H-frame**, enabling us to securely attach the Pixy to the connector. Additionally, we designed a **custom mount** to provide further support and stability for the Pixy camera.
+
+Both the beam and the Pixy mount were connected using **3 mm screws**, allowing for easy adjustment and locking of the camera at the **desired angle**. This setup ensured that the Pixy could consistently scan and detect objects with accuracy, especially during the obstacle round challenge.
 
 # Electricals 
 
