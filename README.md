@@ -347,6 +347,7 @@ Make the steering motor back to its original position
 Read the values of the detected object, Multiply the height and width of object to check how near it is to the robot
 When it is near to the robot, take a turn and drive the motor until **The camera cannot see the block**
 Return the Steering motor to its original positon and keep moving ahead
+
 ![obstacle sense](https://github.com/user-attachments/assets/d01555af-ee1a-4ebf-9800-b036567c54c6)
 
 
